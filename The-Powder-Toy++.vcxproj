@@ -51,7 +51,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\</OutDir>
-    <TargetName>Powder</TargetName>
+    <TargetName>Cyens Toy 2</TargetName>
     <IncludePath>$(ProjectDir)includes;$(ProjectDir)includes/SDL;$(ProjectDir)includes/lua5.1;$(ProjectDir)data;$(ProjectDir)src;$(ProjectDir)generated;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)Libraries;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -260,6 +260,7 @@
     <ClCompile Include="src\resampler\resampler.cpp" />
     <ClCompile Include="src\SDLCompat.cpp" />
     <ClCompile Include="src\simulation\Air.cpp" />
+    <ClCompile Include="src\simulation\CyensTools.cpp" />
     <ClCompile Include="src\simulation\elements\116.cpp" />
     <ClCompile Include="src\simulation\elements\146.cpp" />
     <ClCompile Include="src\simulation\elements\ACEL.cpp" />
@@ -639,6 +640,7 @@
     <ClInclude Include="src\SDLMain.h" />
     <ClInclude Include="src\simulation\Air.h" />
     <ClInclude Include="src\simulation\CoordStack.h" />
+    <ClInclude Include="src\simulation\CyensTools.h" />
     <ClInclude Include="src\simulation\Element.h" />
     <ClInclude Include="src\simulation\ElementGraphics.h" />
     <ClInclude Include="src\simulation\Elements.h" />

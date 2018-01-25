@@ -1142,6 +1142,9 @@
     <ClCompile Include="src\simulation\elements\PRFN.cpp">
       <Filter>Source Files\simulation\element</Filter>
     </ClCompile>
+    <ClCompile Include="src\simulation\CyensTools.cpp">
+      <Filter>Source Files\simulation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="generated\ElementClasses.h">
@@ -1728,6 +1731,9 @@
     </ClInclude>
     <ClInclude Include="src\common\tpt-minmax.h">
       <Filter>Source Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\simulation\CyensTools.h">
+      <Filter>Source Files\simulation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

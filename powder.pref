@@ -24,7 +24,8 @@
 			"!set type prfn none",
 			"!set type mwax none",
 			"!set type hcbn none",
-			"!set type desl none"
+			"!set type desl none",
+			"!set type ttan tung"
 		]
 	},
 	"Decoration" : 
@@ -70,6 +71,6 @@
 		"UndoHistoryLimit" : 5
 	},
 	"User" : null,
-	"WindowX" : 323,
-	"WindowY" : 39
+	"WindowX" : 319,
+	"WindowY" : 54
 }

@@ -20,6 +20,7 @@
 #include "client/GameSave.h"
 #include "common/tpt-minmax.h"
 #include "gui/game/Brush.h"
+#include "CyensTools.h"
 
 #ifdef LUACONSOLE
 #include "lua/LuaScriptInterface.h"
@@ -3531,17 +3532,6 @@ int Simulation::create_part(int p, int x, int y, int t, int v)
 	return i;
 }
 
-//Generates a random hydrocarbon type (alkane/ene/yne) with given number of carbons, returns number of hydrogens
-int Simulation::makeAlk(int c) {
-	int alkType = rand() % 3;
-	return alkType == 0 ? (2 * c + 2) : alkType == 1 ? (2 * c) : (2 * c - 2);
-}
-
-//Gets the bond location randomly for alkenes and alkynes
-int Simulation::getBondLoc(int c) {
-	return (rand() % (c / 2)) + 1;
-}
-
 void Simulation::GetGravityField(int x, int y, float particleGrav, float newtonGrav, float & pGravX, float & pGravY)
 {
 	pGravX = newtonGrav * gravx[(y / CELL)*(XRES / CELL) + (x / CELL)];
@@ -3766,6 +3756,7 @@ void Simulation::UpdateParticles(int start, int end)
 					pGravY = elements[t].Gravity;
 					break;
 				case 1:
+				case 3://local gravity by firefreak11
 					pGravX = pGravY = 0.0f;
 					break;
 				case 2:
@@ -4351,6 +4342,9 @@ void Simulation::UpdateParticles(int start, int end)
 			if (legacy_enable)//if heat sim is off
 				Element::legacyUpdate(this, i, x, y, surround_space, nt, parts, pmap);
 
+			//Update Cyens Toy things like Organic chemistry
+			ClampOrganic(&parts[i]);
+
 		killed:
 			if (parts[i].type == PT_NONE)//if its dead, skip to next particle
 				continue;
@@ -4796,6 +4790,7 @@ void Simulation::UpdateParticles(int start, int end)
 									pGravY = ptGrav;
 									break;
 								case 1:
+								case 3:
 									pGravX = pGravY = 0.0f;
 									break;
 								case 2:
@@ -4868,6 +4863,7 @@ void Simulation::UpdateParticles(int start, int end)
 										pGravY = ptGrav;
 										break;
 									case 1:
+									case 3:
 										pGravX = pGravY = 0.0f;
 										break;
 									case 2:

@@ -1,0 +1,75 @@
+{
+	"Console" : 
+	{
+		"History" : 
+		[
+			"!set type prfn none",
+			"!set type hcbn none",
+			"!set type hcbn none",
+			"!set type prfn none",
+			"!set type desl none",
+			"!set type oil none",
+			"!set type mwax none",
+			"!set type hcbn none",
+			"!set type prfn none",
+			"!set type desl none",
+			"!set type oil none",
+			"!set type mwax none",
+			"!set type mwax none",
+			"!set type oil none",
+			"!set type prfn none",
+			"!set type hcbn none",
+			"!set type wax none",
+			"!set type wax none",
+			"!set type prfn none",
+			"!set type mwax none",
+			"!set type hcbn none",
+			"!set type desl none"
+		]
+	},
+	"Decoration" : 
+	{
+		"Alpha" : 255,
+		"Blue" : 50,
+		"Green" : 100,
+		"Red" : 200
+	},
+	"Favorites" : null,
+	"Prop" : 
+	{
+		"Type" : 1,
+		"Value" : "1"
+	},
+	"Renderer" : 
+	{
+		"ColourMode" : 0,
+		"DebugMode" : true,
+		"Decorations" : true,
+		"DisplayModes" : 
+		[
+			16
+		],
+		"GravityField" : false,
+		"RenderModes" : 
+		[
+			258944,
+			324480,
+			62344,
+			62340,
+			4278252144,
+			67171201
+		]
+	},
+	"Scale" : 2,
+	"Simulation" : 
+	{
+		"AmbientHeat" : 0,
+		"EdgeMode" : 1,
+		"NewtonianGravity" : 1,
+		"PrettyPowder" : 0,
+		"UndoHistoryLimit" : 5
+	},
+	"User" : null,
+	"WindowX" : 323,
+	"WindowY" : 39
+}

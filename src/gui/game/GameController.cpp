@@ -1550,7 +1550,8 @@ std::string GameController::ElementResolve(int type, int ctype, int debug)
 	return "";
 }
 
-std::string GameController::hydrocarbonName(int t, int c, int h, int b) {
+//type, carbons, hydrogens, bond location, alcohol bond location
+std::string GameController::hydrocarbonName(int t, int c, int h, int b, int a) {
 	std::stringstream ss;
 	//What state is it
 	switch (t) {
@@ -1572,10 +1573,14 @@ std::string GameController::hydrocarbonName(int t, int c, int h, int b) {
 	case PT_OIL:
 		ss << "Oil: ";
 		break;
+	case PT_ALCL:
+		ss << "Alcohol: ";
+		break;
 	}
 	//If it has a double or triple bond, where is it?
 	if (b)
 		ss << b << "-";
+
 	switch (c) {
 	case 1:
 		ss << "Meth";
@@ -1650,11 +1655,25 @@ std::string GameController::hydrocarbonName(int t, int c, int h, int b) {
 		ss << "Hexacont";
 		break;
 	default:
-		return "Kerosene";
+		return t == PT_ALCL ? "Alcohol" : "Kerosene";
 	}
-	if (h == 2 * c + 2)ss << "ane";
-	else if (h == 2 * c)ss << "ene";
-	else ss << "yne";
+
+	if (isAlkane(c, h))ss << "an";
+	else if (isAlkene(c, h))ss << "en";
+	else ss << "yn";
+
+	if (t == PT_ALCL) {
+		if (c == 1 || a == 1) ss << "ol";
+		else ss << "-" << a << "-ol";
+	}
+	else ss << "e";
+
+	ss << " [C";
+	if (c > 1) ss << c;
+	ss << "H" << h - (t == PT_ALCL);
+	if (t == PT_ALCL)ss << "OH]";
+	else ss << "]";
+
 	return ss.str();
 }
 
@@ -1759,7 +1778,7 @@ void GameController::NotifyUpdateAvailable(Client * sender)
 
 			new ConfirmPrompt("Run Updater", updateMessage.str(), new UpdateConfirmation(c));
 		}
-};
+	};
 
 	switch (sender->GetUpdateInfo().Type)
 	{
@@ -1776,7 +1795,7 @@ void GameController::NotifyUpdateAvailable(Client * sender)
 	case UpdateInfo::Beta:
 		gameModel->AddNotification(new UpdateNotification(this, std::string("A new beta is available - click here to update")));
 		break;
-	}
+}
 }
 
 void GameController::RemoveNotification(Notification * notification)

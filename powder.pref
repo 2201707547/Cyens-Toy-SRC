@@ -3,17 +3,6 @@
 	{
 		"History" : 
 		[
-			"!set type prfn none",
-			"!set type hcbn none",
-			"!set type hcbn none",
-			"!set type prfn none",
-			"!set type desl none",
-			"!set type oil none",
-			"!set type mwax none",
-			"!set type hcbn none",
-			"!set type prfn none",
-			"!set type desl none",
-			"!set type oil none",
 			"!set type mwax none",
 			"!set type mwax none",
 			"!set type oil none",
@@ -25,7 +14,20 @@
 			"!set type mwax none",
 			"!set type hcbn none",
 			"!set type desl none",
-			"!set type ttan tung"
+			"!set type ttan tung",
+			"!set life crbn 6",
+			"!set type caus sdum",
+			"!set type cl2 sdum",
+			"!set type salt watr",
+			"!set type sltw watr",
+			"!set temp pump 400",
+			"!set temp pump 800",
+			"!set type glas ttan",
+			"!set type crbn hcbn",
+			"!set type glas ttan",
+			"!set life hcbn 1",
+			"!set type dstw watr",
+			"!set type wax desl"
 		]
 	},
 	"Decoration" : 
@@ -39,7 +41,7 @@
 	"Prop" : 
 	{
 		"Type" : 1,
-		"Value" : "1"
+		"Value" : "50"
 	},
 	"Renderer" : 
 	{
@@ -64,13 +66,13 @@
 	"Scale" : 2,
 	"Simulation" : 
 	{
-		"AmbientHeat" : 0,
+		"AmbientHeat" : 1,
 		"EdgeMode" : 1,
 		"NewtonianGravity" : 1,
 		"PrettyPowder" : 0,
 		"UndoHistoryLimit" : 5
 	},
 	"User" : null,
-	"WindowX" : 319,
-	"WindowY" : 54
+	"WindowX" : 316,
+	"WindowY" : 55
 }

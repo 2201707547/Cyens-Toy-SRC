@@ -3503,7 +3503,7 @@ int Simulation::create_part(int p, int x, int y, int t, int v)
 	case PT_OIL:	//Spawns with carbons (20-60), temp must be min 42 °C
 		parts[i].life = rand() % 41 + 20;
 		parts[i].tmp = makeAlk(parts[i].life);
-		if (parts[i].tmp < 2 * parts[i].life + 2)parts[i].tmp2 = getBondLoc(parts[i].life);	
+		if (parts[i].tmp < 2 * parts[i].life + 2)parts[i].tmp2 = getBondLoc(parts[i].life);
 		//Essentially this is creating PRFN then melting it right away
 		parts[i].temp = 14.3f*sqrt(parts[i].life - 12) + 273.15f + 20.0f;
 		break;
@@ -4327,7 +4327,7 @@ void Simulation::UpdateParticles(int start, int end)
 					x = (int)(parts[i].x + 0.5f);
 					y = (int)(parts[i].y + 0.5f);
 				}
-			}
+		}
 #if !defined(RENDERER) && defined(LUACONSOLE)
 			if (lua_el_mode[parts[i].type] && lua_el_mode[parts[i].type] != 3)
 			{
@@ -4917,7 +4917,7 @@ void Simulation::UpdateParticles(int start, int end)
 			}
 		movedone:
 			continue;
-		}
+}
 
 	//'f' was pressed (single frame)
 	if (framerender)

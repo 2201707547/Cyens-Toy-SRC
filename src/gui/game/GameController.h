@@ -17,6 +17,7 @@
 #include "client/ClientListener.h"
 #include "RenderPreset.h"
 #include "Menu.h"
+#include "../../simulation/CyensTools.h"
 
 using namespace std;
 
@@ -26,7 +27,7 @@ class GameModel;
 class GameView;
 class CommandInterface;
 class ConsoleController;
-class GameController: public ClientListener
+class GameController : public ClientListener
 {
 private:
 	bool firstTick;
@@ -147,10 +148,12 @@ public:
 	ui::Point PointTranslate(ui::Point point);
 	ui::Point NormaliseBlockCoord(ui::Point point);
 	std::string ElementResolve(int type, int ctype, int debug);
-	std::string hydrocarbonName(int t, int c, int h, int b);	//Organic Chemistry
 	bool IsValidElement(int type);
 	std::string WallName(int type);
 	int Record(bool record);
+
+	//Organic Chemistry
+	std::string hydrocarbonName(int t, int c, int h, int b, int a);
 
 	void ResetAir();
 	void ResetSpark();

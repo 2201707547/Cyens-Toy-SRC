@@ -78,6 +78,7 @@ int Element_GAS::update(UPDATE_FUNC_ARGS) {
 							if (xx*xx + yy * yy <= 9) {
 								sim->create_part(-1, x + xx, y + yy, PT_FIRE);
 								sim->pv[y / CELL][x / CELL] = parts[i].life > 45 ? 5 : 100.0f - parts[i].life;
+								sim->part_change_type(i, x, y, PT_CO2);
 							}
 					if (rand() % 61 > parts[i].life)sim->part_change_type(i, x, y, rand() % 10 < 3 ? PT_CO2 : PT_SMKE);
 				}

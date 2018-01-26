@@ -195,6 +195,12 @@
 #define PT_RFGL 184
 #define PT_LSNS 185
 #define PT_PRFN 186
+#define PT_SDUM 187
+#define PT_N2 188
+#define PT_CRBN 189
+#define PT_NH3 190
+#define PT_HXDE 191
+#define PT_ALCL 192
 
 class Element_NONE: public Element
 {
@@ -1786,6 +1792,54 @@ class Element_PRFN: public Element
 public:
 	Element_PRFN();
 	virtual ~Element_PRFN();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_SDUM: public Element
+{
+public:
+	Element_SDUM();
+	virtual ~Element_SDUM();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_N2: public Element
+{
+public:
+	Element_N2();
+	virtual ~Element_N2();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_CRBN: public Element
+{
+public:
+	Element_CRBN();
+	virtual ~Element_CRBN();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_NH3: public Element
+{
+public:
+	Element_NH3();
+	virtual ~Element_NH3();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_HXDE: public Element
+{
+public:
+	Element_HXDE();
+	virtual ~Element_HXDE();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_ALCL: public Element
+{
+public:
+	Element_ALCL();
+	virtual ~Element_ALCL();
 	static int update(UPDATE_FUNC_ARGS);
 };
 

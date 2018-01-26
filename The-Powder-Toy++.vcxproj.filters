@@ -1145,6 +1145,24 @@
     <ClCompile Include="src\simulation\CyensTools.cpp">
       <Filter>Source Files\simulation</Filter>
     </ClCompile>
+    <ClCompile Include="src\simulation\elements\CRBN.cpp">
+      <Filter>Source Files\simulation\element</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\elements\N2.cpp">
+      <Filter>Source Files\simulation\element</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\elements\SDUM.cpp">
+      <Filter>Source Files\simulation\element</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\elements\NH3.cpp">
+      <Filter>Source Files\simulation\element</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\elements\HXDE.cpp">
+      <Filter>Source Files\simulation\element</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\elements\ALCL.cpp">
+      <Filter>Source Files\simulation\element</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="generated\ElementClasses.h">

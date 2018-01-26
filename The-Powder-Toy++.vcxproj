@@ -51,7 +51,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\</OutDir>
-    <TargetName>Cyens Toy 2</TargetName>
+    <TargetName>Cyens Toy</TargetName>
     <IncludePath>$(ProjectDir)includes;$(ProjectDir)includes/SDL;$(ProjectDir)includes/lua5.1;$(ProjectDir)data;$(ProjectDir)src;$(ProjectDir)generated;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)Libraries;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -265,6 +265,7 @@
     <ClCompile Include="src\simulation\elements\146.cpp" />
     <ClCompile Include="src\simulation\elements\ACEL.cpp" />
     <ClCompile Include="src\simulation\elements\ACID.cpp" />
+    <ClCompile Include="src\simulation\elements\ALCL.cpp" />
     <ClCompile Include="src\simulation\elements\AMTR.cpp" />
     <ClCompile Include="src\simulation\elements\ANAR.cpp" />
     <ClCompile Include="src\simulation\elements\ARAY.cpp" />
@@ -296,6 +297,7 @@
     <ClCompile Include="src\simulation\elements\COAL.cpp" />
     <ClCompile Include="src\simulation\elements\CONV.cpp" />
     <ClCompile Include="src\simulation\elements\CRAY.cpp" />
+    <ClCompile Include="src\simulation\elements\CRBN.cpp" />
     <ClCompile Include="src\simulation\elements\CRMC.cpp" />
     <ClCompile Include="src\simulation\elements\DCEL.cpp" />
     <ClCompile Include="src\simulation\elements\DESL.cpp" />
@@ -342,6 +344,7 @@
     <ClCompile Include="src\simulation\elements\H2.cpp" />
     <ClCompile Include="src\simulation\elements\HEAC.cpp" />
     <ClCompile Include="src\simulation\elements\HSWC.cpp" />
+    <ClCompile Include="src\simulation\elements\HXDE.cpp" />
     <ClCompile Include="src\simulation\elements\ICEI.cpp" />
     <ClCompile Include="src\simulation\elements\IGNT.cpp" />
     <ClCompile Include="src\simulation\elements\INSL.cpp" />
@@ -365,9 +368,11 @@
     <ClCompile Include="src\simulation\elements\METL.cpp" />
     <ClCompile Include="src\simulation\elements\MORT.cpp" />
     <ClCompile Include="src\simulation\elements\MWAX.cpp" />
+    <ClCompile Include="src\simulation\elements\N2.cpp" />
     <ClCompile Include="src\simulation\elements\NBHL.cpp" />
     <ClCompile Include="src\simulation\elements\NBLE.cpp" />
     <ClCompile Include="src\simulation\elements\NEUT.cpp" />
+    <ClCompile Include="src\simulation\elements\NH3.cpp" />
     <ClCompile Include="src\simulation\elements\NICE.cpp" />
     <ClCompile Include="src\simulation\elements\NITR.cpp" />
     <ClCompile Include="src\simulation\elements\NONE.cpp" />
@@ -408,6 +413,7 @@
     <ClCompile Include="src\simulation\elements\SALT.cpp" />
     <ClCompile Include="src\simulation\elements\SAND.cpp" />
     <ClCompile Include="src\simulation\elements\SAWD.cpp" />
+    <ClCompile Include="src\simulation\elements\SDUM.cpp" />
     <ClCompile Include="src\simulation\elements\SHLD1.cpp" />
     <ClCompile Include="src\simulation\elements\SHLD2.cpp" />
     <ClCompile Include="src\simulation\elements\SHLD3.cpp" />

@@ -27,11 +27,11 @@ Element_CAUS::Element_CAUS()
 
 	Weight = 1;
 
-	Temperature = R_TEMP+273.15f;
+	Temperature = R_TEMP + 273.15f;
 	HeatConduct = 70;
 	Description = "Chlorine Gas.";
 
-	Properties = TYPE_GAS|PROP_DEADLY;
+	Properties = TYPE_GAS | PROP_DEADLY;
 
 	LowPressure = IPL;
 	LowPressureTransition = NT;
@@ -52,18 +52,20 @@ int Element_CAUS::update(UPDATE_FUNC_ARGS)
 		for (int ry = -2; ry <= 2; ry++)
 			if (BOUNDS_CHECK && (rx || ry))
 			{
-				int r = pmap[y+ry][x+rx];
+				int r = pmap[y + ry][x + rx];
 				if (!r)
 					continue;
 				if (TYP(r) == PT_GAS)
 				{
-					if (sim->pv[(y+ry)/CELL][(x+rx)/CELL] > 3)
+					if (sim->pv[(y + ry) / CELL][(x + rx) / CELL] > 3)
 					{
-						sim->part_change_type(ID(r), x+rx, y+ry, PT_RFRG);
+						sim->part_change_type(ID(r), x + rx, y + ry, PT_RFRG);
 						sim->part_change_type(i, x, y, PT_RFRG);
 					}
 				}
-				else if (TYP(r) != PT_ACID && TYP(r) != PT_CAUS && TYP(r) != PT_RFRG && TYP(r) != PT_RFGL)
+
+				//This is the official CAUS code to make it like acid, but I want it weaker
+				/*else if (TYP(r) != PT_ACID && TYP(r) != PT_CAUS && TYP(r) != PT_RFRG && TYP(r) != PT_RFGL)
 				{
 					if ((TYP(r) != PT_CLNE && TYP(r) != PT_PCLN && sim->elements[TYP(r)].Hardness > (rand()%1000)) && parts[i].life >= 50)
 					{
@@ -83,7 +85,7 @@ int Element_CAUS::update(UPDATE_FUNC_ARGS)
 						sim->kill_part(i);
 						return 1;
 					}
-				}
+				}*/
 			}
 	return 0;
 }

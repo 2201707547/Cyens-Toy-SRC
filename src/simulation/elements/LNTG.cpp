@@ -29,7 +29,7 @@ Element_LNTG::Element_LNTG()
 
 	Temperature = 70.15f;
 	HeatConduct = 70;
-	Description = "Liquid Nitrogen. Very cold, disappears whenever it touches anything warmer.";
+	Description = "Liquid Nitrogen. Very cold, evaporates whenever it touches anything warmer.";
 
 	Properties = TYPE_LIQUID;
 
@@ -40,7 +40,7 @@ Element_LNTG::Element_LNTG()
 	LowTemperature = 63.0f;
 	LowTemperatureTransition = PT_NICE;
 	HighTemperature = 77.0f;
-	HighTemperatureTransition = PT_NONE;
+	HighTemperatureTransition = PT_N2;
 
 	Update = NULL;
 }

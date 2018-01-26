@@ -190,5 +190,11 @@ std::vector<Element> GetElements()
 	elements.push_back(Element_RFGL());
 	elements.push_back(Element_LSNS());
 	elements.push_back(Element_PRFN());
+	elements.push_back(Element_SDUM());
+	elements.push_back(Element_N2());
+	elements.push_back(Element_CRBN());
+	elements.push_back(Element_NH3());
+	elements.push_back(Element_HXDE());
+	elements.push_back(Element_ALCL());
 	return elements;
 }

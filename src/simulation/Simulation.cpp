@@ -2111,6 +2111,9 @@ void Simulation::clear_sim(void)
 		air->ClearAirH();
 	}
 	SetEdgeMode(edgeMode);
+	infoScreenEnabled = false;
+	timeDilationEnabled = false;
+	compressibleGasesEnabled = false;
 }
 
 bool Simulation::IsWallBlocking(int x, int y, int type)
@@ -3543,6 +3546,7 @@ void Simulation::GetGravityField(int x, int y, float particleGrav, float newtonG
 		pGravY += particleGrav;
 		break;
 	case 1: //no gravity
+	case 3: //local gravity
 		break;
 	case 2: //radial gravity
 		if (x - XCNTR != 0 || y - YCNTR != 0)
@@ -3712,10 +3716,23 @@ void Simulation::UpdateParticles(int start, int end)
 			if (bmap[y / CELL][x / CELL] == WL_DETECT && emap[y / CELL][x / CELL] < 8)
 				set_emap(x / CELL, y / CELL);
 
-			//adding to velocity from the particle's velocity
-			vx[y / CELL][x / CELL] = vx[y / CELL][x / CELL] * elements[t].AirLoss + elements[t].AirDrag*parts[i].vx;
-			vy[y / CELL][x / CELL] = vy[y / CELL][x / CELL] * elements[t].AirLoss + elements[t].AirDrag*parts[i].vy;
+			bool canTick = true;
 
+			//Time dilation 
+			if (timeDilationEnabled) {
+				float td = 10.0f*sqrt(gravx[(y / CELL)*(XRES / CELL) + (x / CELL)] * gravx[(y / CELL)*(XRES / CELL) + (x / CELL)] + gravy[(y / CELL)*(XRES / CELL) + (x / CELL)] * gravy[(y / CELL)*(XRES / CELL) + (x / CELL)]);
+				td = td < 1 ? 1 : td;
+				if (++parts[i].timeDilationTimer % (int)td != 0)
+					canTick = false;
+				else parts[i].timeDilationTimer = 0;
+			}
+			else parts[i].timeDilationTimer = 0;
+
+			//adding to velocity from the particle's velocity
+			if (canTick) {
+				vx[y / CELL][x / CELL] = vx[y / CELL][x / CELL] * elements[t].AirLoss + elements[t].AirDrag*parts[i].vx;
+				vy[y / CELL][x / CELL] = vy[y / CELL][x / CELL] * elements[t].AirLoss + elements[t].AirDrag*parts[i].vy;
+			}
 			if (elements[t].HotAir)
 			{
 				if (t == PT_GAS || t == PT_NBLE)
@@ -3790,6 +3807,11 @@ void Simulation::UpdateParticles(int start, int end)
 			parts[i].vx += elements[t].Advection*vx[y / CELL][x / CELL] + pGravX;
 			parts[i].vy += elements[t].Advection*vy[y / CELL][x / CELL] + pGravY;
 
+			//Local Gravity
+			if (gravityMode == 3)
+				gravmap[(y / CELL)*(XRES / CELL) + (x / CELL)] = elements[t].Weight / 100.0f + ((elements[t].Weight <= 5) * 0.05f * !(elements[t].Properties & TYPE_ENERGY));
+
+			if (!canTick) return; //Time dilation will slow the rest down
 
 			if (elements[t].Diffusion)//the random diffusion that gasses have
 			{
@@ -3801,7 +3823,7 @@ void Simulation::UpdateParticles(int start, int end)
 				parts[i].vx += elements[t].Diffusion*(rand() / (0.5f*RAND_MAX) - 1.0f);
 				parts[i].vy += elements[t].Diffusion*(rand() / (0.5f*RAND_MAX) - 1.0f);
 #endif
-			}
+		}
 
 			transitionOccurred = false;
 
@@ -3944,8 +3966,8 @@ void Simulation::UpdateParticles(int start, int end)
 							{
 								parts[i].temp = restrict_flt(elements[t].HighTemperature - dbt, MIN_TEMP, MAX_TEMP);
 								s = 0;
-							}
-						}
+					}
+				}
 #else
 						if (elements[t].HighTemperatureTransition != PT_NUM)
 							t = elements[t].HighTemperatureTransition;
@@ -3977,17 +3999,17 @@ void Simulation::UpdateParticles(int start, int end)
 									{
 										parts[i].temp = restrict_flt(elements[parts[i].ctype].LowTemperature - dbt, MIN_TEMP, MAX_TEMP);
 										s = 0;
-									}
+							}
 #else
 									t = parts[i].ctype;
 									parts[i].ctype = PT_NONE;
 									parts[i].life = 0;
 #endif
-								}
-							}
+						}
+			}
 							else
 								s = 0;
-						}
+}
 						else if (t == PT_SLTW)
 						{
 #ifdef REALISTIC
@@ -4002,14 +4024,14 @@ void Simulation::UpdateParticles(int start, int end)
 							{
 								parts[i].temp = restrict_flt(elements[t].HighTemperature - dbt, MIN_TEMP, MAX_TEMP);
 								s = 0;
-							}
+}
 #else
 							if (rand() % 4 == 0)
 								t = PT_SALT;
 							else
 								t = PT_WTRV;
 #endif
-						}
+}
 						else if (t == PT_BRMT)
 						{
 							if (parts[i].ctype == PT_TUNG)
@@ -4055,7 +4077,7 @@ void Simulation::UpdateParticles(int start, int end)
 								parts[i].temp = restrict_flt(elements[t].LowTemperature - dbt, MIN_TEMP, MAX_TEMP);
 								s = 0;
 							}
-						}
+					}
 #else
 						if (elements[t].LowTemperatureTransition != PT_NUM)
 							t = elements[t].LowTemperatureTransition;
@@ -4327,7 +4349,7 @@ void Simulation::UpdateParticles(int start, int end)
 					x = (int)(parts[i].x + 0.5f);
 					y = (int)(parts[i].y + 0.5f);
 				}
-		}
+			}
 #if !defined(RENDERER) && defined(LUACONSOLE)
 			if (lua_el_mode[parts[i].type] && lua_el_mode[parts[i].type] != 3)
 			{
@@ -4342,8 +4364,10 @@ void Simulation::UpdateParticles(int start, int end)
 			if (legacy_enable)//if heat sim is off
 				Element::legacyUpdate(this, i, x, y, surround_space, nt, parts, pmap);
 
-			//Update Cyens Toy things like Organic chemistry
+			//Update Cyens Toy things
 			ClampOrganic(&parts[i]);
+
+			//Compressible Gases
 
 		killed:
 			if (parts[i].type == PT_NONE)//if its dead, skip to next particle
@@ -4917,7 +4941,7 @@ void Simulation::UpdateParticles(int start, int end)
 			}
 		movedone:
 			continue;
-}
+			}
 
 	//'f' was pressed (single frame)
 	if (framerender)
@@ -5435,6 +5459,9 @@ Simulation::Simulation() :
 	gravityMode(0),
 	legacy_enable(0),
 	aheat_enable(0),
+	infoScreenEnabled(0),
+	timeDilationEnabled(0),
+	compressibleGasesEnabled(0),
 	water_equal_test(0),
 	sys_pause(0),
 	framerender(0),

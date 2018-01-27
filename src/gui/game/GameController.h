@@ -152,7 +152,7 @@ public:
 	std::string WallName(int type);
 	int Record(bool record);
 
-	//Organic Chemistry
+	//Cyens Toy
 	std::string hydrocarbonName(int t, int c, int h, int b, int a);
 
 	void ResetAir();
@@ -162,6 +162,9 @@ public:
 	void ToggleAHeat();
 	bool GetAHeatEnable();
 	void ToggleNewtonianGravity();
+	void ToggleInfoscreen();
+	void ToggleTimeDilation();
+	void ToggleCompressibleGases();
 
 	bool LoadClipboard();
 	void LoadStamp(GameSave *stamp);

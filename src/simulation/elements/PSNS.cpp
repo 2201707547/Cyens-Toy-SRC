@@ -7,7 +7,7 @@ Element_PSNS::Element_PSNS()
 	FullName = "Pressure Sensor";
 	Colour = PIXPACK(0xDB2020);
 	MenuVisible = 1;
-	MenuSection = SC_SENSOR;
+	MenuSection = SC_POWERED;
 	Enabled = 1;
 
 	Advection = 0.0f;

@@ -40,25 +40,20 @@
 	"Favorites" : null,
 	"Prop" : 
 	{
-		"Type" : 1,
-		"Value" : "50"
+		"Type" : 7,
+		"Value" : "0"
 	},
 	"Renderer" : 
 	{
 		"ColourMode" : 0,
 		"DebugMode" : true,
 		"Decorations" : true,
-		"DisplayModes" : 
-		[
-			16
-		],
+		"DisplayModes" : null,
 		"GravityField" : false,
 		"RenderModes" : 
 		[
 			258944,
 			324480,
-			62344,
-			62340,
 			4278252144,
 			67171201
 		]
@@ -73,6 +68,6 @@
 		"UndoHistoryLimit" : 5
 	},
 	"User" : null,
-	"WindowX" : 316,
-	"WindowY" : 55
+	"WindowX" : 383,
+	"WindowY" : 68
 }

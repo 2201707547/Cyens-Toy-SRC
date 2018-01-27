@@ -7,7 +7,7 @@ Element_GBMB::Element_GBMB()
 	FullName = "Gravity Bomb";
 	Colour = PIXPACK(0x1144BB);
 	MenuVisible = 1;
-	MenuSection = SC_FORCE;
+	MenuSection = SC_POWERED;
 	Enabled = 1;
 
 	Advection = 0.6f;

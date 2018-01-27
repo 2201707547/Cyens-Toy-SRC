@@ -12,11 +12,17 @@
 		"ColourMode" : 0,
 		"DebugMode" : true,
 		"Decorations" : true,
-		"DisplayModes" : null,
+		"DisplayModes" : 
+		[
+			16
+		],
 		"GravityField" : false,
 		"RenderModes" : 
 		[
 			258944,
+			324480,
+			62344,
+			62340,
 			4278252144,
 			67171201
 		]

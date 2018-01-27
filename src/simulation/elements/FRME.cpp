@@ -7,7 +7,7 @@ Element_FRME::Element_FRME()
 	FullName = "Frame";
 	Colour = PIXPACK(0x999988);
 	MenuVisible = 1;
-	MenuSection = SC_FORCE;
+	MenuSection = SC_POWERED;
 	Enabled = 1;
 
 	Advection = 0.0f;

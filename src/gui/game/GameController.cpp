@@ -762,7 +762,10 @@ bool GameController::KeyPress(int key, Uint16 character, bool shift, bool ctrl, 
 			switch (key)
 			{
 			case 'w':
-				SwitchGravity();
+				if (ctrl)
+					ToggleInfoscreen();
+				else
+					SwitchGravity();
 				break;
 			case 'd':
 				gameView->SetDebugHUD(!gameView->GetDebugHUD());
@@ -886,7 +889,7 @@ void GameController::ResetSpark()
 
 void GameController::SwitchGravity()
 {
-	gameModel->GetSimulation()->gravityMode = (gameModel->GetSimulation()->gravityMode + 1) % 3;
+	gameModel->GetSimulation()->gravityMode = (gameModel->GetSimulation()->gravityMode + 1) % 4;
 
 	switch (gameModel->GetSimulation()->gravityMode)
 	{
@@ -898,6 +901,9 @@ void GameController::SwitchGravity()
 		break;
 	case 2:
 		gameModel->SetInfoTip("Gravity: Radial");
+		break;
+	case 3:
+		gameModel->SetInfoTip("Gravity: Local");
 		break;
 	}
 }
@@ -939,6 +945,18 @@ bool GameController::GetAHeatEnable()
 void GameController::ToggleNewtonianGravity()
 {
 	gameModel->SetNewtonianGravity(!gameModel->GetNewtonianGrvity());
+}
+
+void GameController::ToggleInfoscreen() {
+	gameModel->SetInfoscreenEnable(!gameModel->GetInfoscreenEnable());
+}
+
+void GameController::ToggleTimeDilation() {
+	gameModel->SetTimeDilationEnable(!gameModel->GetTimeDilationEnable());
+}
+
+void GameController::ToggleCompressibleGases() {
+	gameModel->SetCompressibleGasesEnable(!gameModel->GetCompressibleGasesEnable());
 }
 
 void GameController::LoadRenderPreset(int presetNum)

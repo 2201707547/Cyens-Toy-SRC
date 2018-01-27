@@ -35,8 +35,8 @@ Element_WIFI::Element_WIFI()
 
 	LowPressure = IPL;
 	LowPressureTransition = NT;
-	HighPressure = 15.0f;
-	HighPressureTransition = PT_BRMT;
+	HighPressure = IPH;
+	HighPressureTransition = NT;
 	LowTemperature = ITL;
 	LowTemperatureTransition = NT;
 	HighTemperature = ITH;

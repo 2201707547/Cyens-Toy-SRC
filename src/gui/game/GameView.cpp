@@ -436,7 +436,7 @@ GameView::GameView() :
 	ui::Button * tempButton = new ui::Button(ui::Point(WINDOWW - 16, WINDOWH - 32), ui::Point(15, 15), "\xE5", "Search for elements");
 	tempButton->Appearance.Margin = ui::Border(0, 2, 3, 2);
 	tempButton->SetActionCallback(new ElementSearchAction(this));
-	AddComponent(tempButton);
+	//AddComponent(tempButton);
 
 	class ColourPickerAction : public ui::ButtonAction
 	{
@@ -614,7 +614,7 @@ void GameView::NotifyMenuListChanged(GameModel * sender)
 			std::string description = menuList[i]->GetDescription();
 			if (i == SC_FAVORITES && Favorite::Ref().AnyFavorites())
 				description += " (Use ctrl+shift+click to favorite an element)";
-			ui::Button * tempButton = new ui::Button(ui::Point(WINDOWW - 16, currentY), ui::Point(15, 15), tempString, description);
+			ui::Button * tempButton = new ui::Button(ui::Point(WINDOWW - 16, currentY + 16), ui::Point(15, 15), tempString, description);
 			tempButton->Appearance.Margin = ui::Border(0, 2, 3, 2);
 			tempButton->SetTogglable(true);
 			tempButton->SetActionCallback(new MenuAction(this, i));
@@ -1574,6 +1574,12 @@ void GameView::OnKeyPress(int key, Uint16 character, bool shift, bool ctrl, bool
 		break;
 	case 'n':
 		c->ToggleNewtonianGravity();
+		break;
+	case 't':
+		c->ToggleTimeDilation();
+		break;
+	case 'o':
+		c->ToggleCompressibleGases();
 		break;
 	case '=':
 		if (ctrl)

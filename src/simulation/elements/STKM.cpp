@@ -112,6 +112,7 @@ int Element_STKM::run_stickman(playerst *playerp, UPDATE_FUNC_ARGS) {
 			gvy = 1;
 			break;
 		case 1:
+		case 3:
 			gvy = gvx = 0.0f;
 			break;
 		case 2:

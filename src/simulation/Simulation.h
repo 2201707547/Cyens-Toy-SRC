@@ -113,6 +113,9 @@ public:
 	int pretty_powder;
 	int sandcolour;
 	int sandcolour_frame;
+	int infoScreenEnabled;
+	int timeDilationEnabled;
+	int compressibleGasesEnabled;
 
 	int Load(GameSave * save, bool includePressure = true);
 	int Load(int x, int y, GameSave * save, bool includePressure = true);

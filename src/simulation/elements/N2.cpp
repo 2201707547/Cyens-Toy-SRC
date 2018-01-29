@@ -56,7 +56,7 @@ int Element_N2::update(UPDATE_FUNC_ARGS)
 			if (BOUNDS_CHECK)
 			{
 				r = pmap[y + ry][x + rx];
-				if (!r || (r & 0xFF) == PT_SDUM)
+				if (!r || (r & 0xFF) == PT_N2)
 					r = sim->photons[y + ry][x + rx];
 				if (!r)
 					continue;

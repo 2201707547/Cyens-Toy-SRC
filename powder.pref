@@ -3,13 +3,6 @@
 	{
 		"History" : 
 		[
-			"!set type mwax none",
-			"!set type mwax none",
-			"!set type oil none",
-			"!set type prfn none",
-			"!set type hcbn none",
-			"!set type wax none",
-			"!set type wax none",
 			"!set type prfn none",
 			"!set type mwax none",
 			"!set type hcbn none",
@@ -27,7 +20,14 @@
 			"!set type glas ttan",
 			"!set life hcbn 1",
 			"!set type dstw watr",
-			"!set type wax desl"
+			"!set type wax desl",
+			"!set type clne none",
+			"!set type watr gas",
+			"!set type watr hcbn",
+			"!set type sltw hcbn",
+			"!set temp all 0",
+			"!set temp all 0",
+			"!set type sprk n2"
 		]
 	},
 	"Decoration" : 
@@ -48,12 +48,17 @@
 		"ColourMode" : 0,
 		"DebugMode" : true,
 		"Decorations" : true,
-		"DisplayModes" : null,
+		"DisplayModes" : 
+		[
+			16
+		],
 		"GravityField" : false,
 		"RenderModes" : 
 		[
 			258944,
 			324480,
+			62344,
+			62340,
 			4278252144,
 			67171201
 		]
@@ -62,12 +67,19 @@
 	"Simulation" : 
 	{
 		"AmbientHeat" : 1,
-		"EdgeMode" : 1,
+		"EdgeMode" : 0,
 		"NewtonianGravity" : 1,
 		"PrettyPowder" : 0,
 		"UndoHistoryLimit" : 5
 	},
-	"User" : null,
-	"WindowX" : 383,
-	"WindowY" : 68
+	"User" : 
+	{
+		"Elevation" : "None",
+		"ID" : 5009,
+		"SessionID" : "4477BDCD3F1BA45899F5323A863420",
+		"SessionKey" : "58635FDD3F",
+		"Username" : "firefreak11"
+	},
+	"WindowX" : 233,
+	"WindowY" : 48
 }

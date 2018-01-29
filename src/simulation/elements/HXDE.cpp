@@ -3,7 +3,7 @@
 Element_HXDE::Element_HXDE()
 {
 	Identifier = "DEFAULT_PT_HXDE";
-	Name = "HXDE";
+	Name = "OH-";
 	FullName = "Hydroxide Ion";
 	Colour = PIXPACK(0xF9F0FF);
 	MenuVisible = 1;

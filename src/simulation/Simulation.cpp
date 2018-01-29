@@ -3811,7 +3811,7 @@ void Simulation::UpdateParticles(int start, int end)
 			if (gravityMode == 3)
 				gravmap[(y / CELL)*(XRES / CELL) + (x / CELL)] = elements[t].Weight / 100.0f + ((elements[t].Weight <= 5) * 0.05f * !(elements[t].Properties & TYPE_ENERGY));
 
-			if (!canTick) return; //Time dilation will slow the rest down
+			if (!canTick) continue; //Time dilation will slow the rest down
 
 			if (elements[t].Diffusion)//the random diffusion that gasses have
 			{

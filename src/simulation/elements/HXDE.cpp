@@ -70,6 +70,11 @@ int Element_HXDE::update(UPDATE_FUNC_ARGS)
 					sim->part_change_type(ID(r), x + rx, y + ry, PT_ALCL);
 					sim->kill_part(i);
 				}
+
+				if ((r & 0xFF) == PT_CRBN) {
+					sim->part_change_type(i, x, y, PT_CBXL);
+					sim->kill_part(ID(r));
+				}
 			}
 	return 0;
 }

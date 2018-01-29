@@ -31,7 +31,7 @@ Element_ALCL::Element_ALCL()
 	HeatConduct = 42;
 	Description = "Organic alcohol.";
 
-	Properties = TYPE_LIQUID;
+	Properties = TYPE_LIQUID | PROP_DEADLY;
 
 	LowPressure = IPL;
 	LowPressureTransition = NT;
@@ -47,20 +47,25 @@ Element_ALCL::Element_ALCL()
 
 //#TPT-Directive ElementHeader Element_ALCL static int update(UPDATE_FUNC_ARGS)
 int Element_ALCL::update(UPDATE_FUNC_ARGS) {
-	//ALCL is an organic liquid, it should not have any more than 60 carbons.
+	//ALCL is an organic liquid, it should not have any more than 60 carbons. (Should move all these to CyensToys.cpp)
 	if (parts[i].life > 60)parts[i].life = 60;
 
+	int w = 0;
 	int r, rx, ry;
 	for (rx = -1; rx < 2; rx++)
 		for (ry = -1; ry < 2; ry++)
 			if (BOUNDS_CHECK)
 			{
 				r = pmap[y + ry][x + rx];
-				if (!r || (r & 0xFF) == PT_ALCL)
+				if (!r)
 					r = sim->photons[y + ry][x + rx];
 				if (!r)
 					continue;
-
+				if ((r & 0xFF) == PT_WATR || (r & 0xFF == PT_DSTW))
+					if (++w > 2) {
+						sim->part_change_type(i, x, y, PT_RBAC);
+						sim->kill_part(ID(r));
+					}
 			}
 	return 0;
 }

@@ -1163,6 +1163,18 @@
     <ClCompile Include="src\simulation\elements\ALCL.cpp">
       <Filter>Source Files\simulation\element</Filter>
     </ClCompile>
+    <ClCompile Include="src\simulation\elements\CBXL.cpp">
+      <Filter>Source Files\simulation\element</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\elements\ACTA.cpp">
+      <Filter>Source Files\simulation\element</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\elements\VNGR.cpp">
+      <Filter>Source Files\simulation\element</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\elements\RBAC.cpp">
+      <Filter>Source Files\simulation\element</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="generated\ElementClasses.h">

@@ -61,6 +61,7 @@ int Element_NH3::update(UPDATE_FUNC_ARGS)
 				if (!r)
 					continue;
 				
+				//Future reactions to be implemented here
 			}
 	return 0;
 }

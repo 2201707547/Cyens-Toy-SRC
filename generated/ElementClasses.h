@@ -201,6 +201,10 @@
 #define PT_NH3 190
 #define PT_HXDE 191
 #define PT_ALCL 192
+#define PT_CBXL 193
+#define PT_ACTA 194
+#define PT_VNGR 195
+#define PT_RBAC 196
 
 class Element_NONE : public Element
 {
@@ -1817,7 +1821,7 @@ public:
 	Element_CRBN();
 	virtual ~Element_CRBN();
 	static int update(UPDATE_FUNC_ARGS);
-	static bool compareRecipes(int rIn[9], int rOut[9], int tMatch, int tProd);
+	static bool compareRecipes(int rFound[9], int rSource[9], int tMatch, int tProd);
 };
 
 class Element_NH3 : public Element
@@ -1842,6 +1846,37 @@ public:
 	Element_ALCL();
 	virtual ~Element_ALCL();
 	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_CBXL : public Element
+{
+public:
+	Element_CBXL();
+	virtual ~Element_CBXL();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_ACTA : public Element
+{
+public:
+	Element_ACTA();
+	virtual ~Element_ACTA();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_VNGR : public Element
+{
+public:
+	Element_VNGR();
+	virtual ~Element_VNGR();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_RBAC : public Element
+{
+public:
+	Element_RBAC();
+	virtual ~Element_RBAC();
 };
 
 std::vector<Element> GetElements();

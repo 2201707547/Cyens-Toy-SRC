@@ -265,6 +265,7 @@
     <ClCompile Include="src\simulation\elements\146.cpp" />
     <ClCompile Include="src\simulation\elements\ACEL.cpp" />
     <ClCompile Include="src\simulation\elements\ACID.cpp" />
+    <ClCompile Include="src\simulation\elements\ACTA.cpp" />
     <ClCompile Include="src\simulation\elements\ALCL.cpp" />
     <ClCompile Include="src\simulation\elements\AMTR.cpp" />
     <ClCompile Include="src\simulation\elements\ANAR.cpp" />
@@ -289,6 +290,7 @@
     <ClCompile Include="src\simulation\elements\C5.cpp" />
     <ClCompile Include="src\simulation\elements\CAUS.cpp" />
     <ClCompile Include="src\simulation\elements\CBNW.cpp" />
+    <ClCompile Include="src\simulation\elements\CBXL.cpp" />
     <ClCompile Include="src\simulation\elements\CFLM.cpp" />
     <ClCompile Include="src\simulation\elements\CLNE.cpp" />
     <ClCompile Include="src\simulation\elements\CLST.cpp" />
@@ -405,6 +407,7 @@
     <ClCompile Include="src\simulation\elements\PUMP.cpp" />
     <ClCompile Include="src\simulation\elements\PVOD.cpp" />
     <ClCompile Include="src\simulation\elements\QRTZ.cpp" />
+    <ClCompile Include="src\simulation\elements\RBAC.cpp" />
     <ClCompile Include="src\simulation\elements\RBDM.cpp" />
     <ClCompile Include="src\simulation\elements\RFGL.cpp" />
     <ClCompile Include="src\simulation\elements\RFRG.cpp" />
@@ -443,6 +446,7 @@
     <ClCompile Include="src\simulation\elements\VIBR.cpp" />
     <ClCompile Include="src\simulation\elements\VINE.cpp" />
     <ClCompile Include="src\simulation\elements\VIRS.cpp" />
+    <ClCompile Include="src\simulation\elements\VNGR.cpp" />
     <ClCompile Include="src\simulation\elements\VOID.cpp" />
     <ClCompile Include="src\simulation\elements\VRSG.cpp" />
     <ClCompile Include="src\simulation\elements\VRSS.cpp" />

@@ -196,5 +196,9 @@ std::vector<Element> GetElements()
 	elements.push_back(Element_NH3());
 	elements.push_back(Element_HXDE());
 	elements.push_back(Element_ALCL());
+	elements.push_back(Element_CBXL());
+	elements.push_back(Element_ACTA());
+	elements.push_back(Element_VNGR());
+	elements.push_back(Element_RBAC());
 	return elements;
 }

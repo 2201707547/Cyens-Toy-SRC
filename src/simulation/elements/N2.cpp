@@ -56,17 +56,17 @@ int Element_N2::update(UPDATE_FUNC_ARGS)
 			if (BOUNDS_CHECK)
 			{
 				r = pmap[y + ry][x + rx];
-				if (!r || (r & 0xFF) == PT_N2)
+				if (!r || TYP(r) == PT_N2)
 					r = sim->photons[y + ry][x + rx];
 				if (!r)
 					continue;
 
-				if ((r & 0xFF) == PT_PLNT) {
+				if (TYP(r) == PT_PLNT) {
 					sim->part_change_type(ID(r), x + rx, y + ry, PT_VINE);
 					sim->kill_part(i);
 				}
 
-				if ((r & 0xFF) == PT_H2) {
+				if (TYP(r) == PT_H2) {
 					sim->part_change_type(i,x,y,PT_NH3);
 					sim->kill_part(ID(r));
 				}

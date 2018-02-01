@@ -27,7 +27,7 @@ Element_YEST::Element_YEST()
 
 	Weight = 80;
 
-	Temperature = R_TEMP+0.0f	+273.15f;
+	Temperature = R_TEMP + 0.0f + 273.15f;
 	HeatConduct = 70;
 	Description = "Yeast, grows when warm (~37C).";
 
@@ -49,20 +49,25 @@ Element_YEST::Element_YEST()
 int Element_YEST::update(UPDATE_FUNC_ARGS)
 {
 	int r, rx, ry;
-	for (rx=-1; rx<2; rx++)
-		for (ry=-1; ry<2; ry++)
+	for (rx = -1; rx < 2; rx++)
+		for (ry = -1; ry < 2; ry++)
 			if (BOUNDS_CHECK && (rx || ry))
 			{
-				r = pmap[y+ry][x+rx];
+				r = pmap[y + ry][x + rx];
 				if (!r)
 					continue;
-				if (TYP(r)==PT_DYST && !(rand()%6) && !sim->legacy_enable)
+				if (TYP(r) == PT_DYST && !(rand() % 6) && !sim->legacy_enable)
 				{
-					sim->part_change_type(i,x,y,PT_DYST);
+					sim->part_change_type(i, x, y, PT_DYST);
 				}
+				//TODO: When sugars are added, respiration of YEST to produce WTRV and CO2 in presence of O2 or else ALCL and CO2
+				/*if (TYP(r) == PT_O2) {
+					sim->create_part(-1, x + rand() % 3 - 1, y + rand() % 3 - 1, PT_CO2);
+					sim->part_change_type(ID(r), x + rx, y + ry, PT_ACTA);
+				}*/
 			}
-	if (parts[i].temp>303&&parts[i].temp<317) {
-		sim->create_part(-1, x+rand()%3-1, y+rand()%3-1, PT_YEST);
+	if (parts[i].temp > 303 && parts[i].temp < 317) {
+		sim->create_part(-1, x + rand() % 3 - 1, y + rand() % 3 - 1, PT_YEST);
 	}
 	return 0;
 }

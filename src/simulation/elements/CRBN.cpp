@@ -91,23 +91,23 @@ int Element_CRBN::update(UPDATE_FUNC_ARGS)
 				if (!r)
 					continue;
 
-				if ((r & 0xFF) == PT_H2) {
+				if (TYP(r) == PT_H2) {
 					sim->part_change_type(i, x, y, PT_GAS);
 					sim->kill_part(ID(r));
 				}
 
-				if ((r & 0xFF) == PT_O2) {
+				if (TYP(r) == PT_O2) {
 					sim->part_change_type(i, x, y, PT_CO2);
 					sim->kill_part(ID(r));
 				}
 
-				if ((r & 0xFF) == PT_GAS && !isAlkyne(parts[i].life, parts[i].tmp) && parts[i].temp > 273.15f + 10.0f * parts[i].life) {
+				if (TYP(r) == PT_GAS && !isAlkyne(parts[i].life, parts[i].tmp) && parts[i].temp > 273.15f + 10.0f * parts[i].life) {
 					parts[ID(r)].life++;
 					parts[ID(r)].tmp++;
 					sim->kill_part(i);
 				}
 
-				recipe[(rx + 1) + (ry + 1) * 3] = (r & 0xFF);
+				recipe[(rx + 1) + (ry + 1) * 3] = TYP(r);
 			}
 
 	if (harden) {

@@ -1,5 +1,5 @@
 static const char *introTextData =
-	"\btCyens Toy 2.0.0 \bg- \blOfficial Version " MTOS(SAVE_VERSION) "." MTOS(MINOR_VERSION) " - http://powdertoy.co.uk, irc.freenode.net #powder\n"
+	"\btCyens Toy 2.0.1 \bg- \blOfficial Version " MTOS(SAVE_VERSION) "." MTOS(MINOR_VERSION) " - http://powdertoy.co.uk, irc.freenode.net #powder\n"
 	"\x7F\x7F\x7F\x7F\x7F\x7F\x7F\x7F\x7F\x7F\x7F\x7F\x7F\x7F\x7F\x7F\n"
 	"\n"
 	"\bgControl+C/V/X are Copy, Paste and cut respectively.\n"

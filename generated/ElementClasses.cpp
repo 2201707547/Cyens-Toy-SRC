@@ -200,5 +200,7 @@ std::vector<Element> GetElements()
 	elements.push_back(Element_ACTA());
 	elements.push_back(Element_VNGR());
 	elements.push_back(Element_RBAC());
+	elements.push_back(Element_CO());
+	elements.push_back(Element_CBNL());
 	return elements;
 }

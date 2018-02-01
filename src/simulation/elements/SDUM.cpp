@@ -56,11 +56,11 @@ int Element_SDUM::update(UPDATE_FUNC_ARGS)
 			if (BOUNDS_CHECK)
 			{
 				r = pmap[y + ry][x + rx];
-				if (!r || (r & 0xFF) == PT_SDUM)
+				if (!r || TYP(r) == PT_SDUM)
 					r = sim->photons[y + ry][x + rx];
 				if (!r)
 					continue;
-				if ((r & 0xFF) == PT_CAUS) {
+				if (TYP(r) == PT_CAUS) {
 					sim->part_change_type(i, x, y, PT_SALT);
 					sim->kill_part(ID(r));
 					sim->pv[y / CELL][x / CELL] += 5;

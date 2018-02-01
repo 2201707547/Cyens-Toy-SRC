@@ -56,22 +56,22 @@ int Element_HXDE::update(UPDATE_FUNC_ARGS)
 			if (BOUNDS_CHECK)
 			{
 				r = pmap[y + ry][x + rx];
-				if (!r || (r & 0xFF) == PT_HXDE)
+				if (!r || TYP(r) == PT_HXDE)
 					r = sim->photons[y + ry][x + rx];
 				if (!r)
 					continue;
 
-				if ((r & 0xFF) == PT_H2) {
+				if (TYP(r) == PT_H2) {
 					sim->part_change_type(i, x, y, PT_WTRV);
 					sim->kill_part(ID(r));
 				}
 
-				if ((r & 0xFF) == PT_GAS || (r & 0xFF) == PT_DESL || (r & 0xFF) == PT_MWAX || (r & 0xFF) == PT_WAX || (r & 0xFF) == PT_PRFN || (r & 0xFF) == PT_OIL) {
+				if (TYP(r) == PT_GAS || TYP(r) == PT_DESL || TYP(r) == PT_MWAX || TYP(r) == PT_WAX || TYP(r) == PT_PRFN || TYP(r) == PT_OIL) {
 					sim->part_change_type(ID(r), x + rx, y + ry, PT_ALCL);
 					sim->kill_part(i);
 				}
 
-				if ((r & 0xFF) == PT_CRBN) {
+				if (TYP(r) == PT_CRBN) {
 					sim->part_change_type(i, x, y, PT_CBXL);
 					sim->kill_part(ID(r));
 				}

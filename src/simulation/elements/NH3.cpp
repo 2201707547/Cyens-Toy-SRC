@@ -56,7 +56,7 @@ int Element_NH3::update(UPDATE_FUNC_ARGS)
 			if (BOUNDS_CHECK)
 			{
 				r = pmap[y + ry][x + rx];
-				if (!r || (r & 0xFF) == PT_NH3)
+				if (!r || TYP(r) == PT_NH3)
 					r = sim->photons[y + ry][x + rx];
 				if (!r)
 					continue;

@@ -64,7 +64,7 @@ int Element_WTRV::update(UPDATE_FUNC_ARGS)
 				}
 			}
 	if (parts[i].temp > 1300) {
-		sim->part_change_type(i, x, y, rand() % 2 ? PT_HXDE : PT_PROT);
+		sim->part_change_type(i, x, y, rand() % 2 ? PT_HXDE : rand() % 2 ? PT_PROT : PT_ELEC);
 		return 0;
 	}
 	if (parts[i].temp > 1273 && parts[i].ctype == PT_FIRE)

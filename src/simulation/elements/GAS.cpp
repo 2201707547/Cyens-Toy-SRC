@@ -68,11 +68,11 @@ int Element_GAS::update(UPDATE_FUNC_ARGS) {
 			if (BOUNDS_CHECK)
 			{
 				r = pmap[y + ry][x + rx];
-				if (!r || (r & 0xFF) == PT_GAS)
+				if (!r || TYP(r) == PT_GAS)
 					r = sim->photons[y + ry][x + rx];
 				if (!r)
 					continue;
-				if (parts[i].temp >= -100 * log(parts[i].life) + 400 + 273.15f || (r & 0xFF) == PT_FIRE || (r & 0xFF) == PT_PLSM || (r & 0xFF) == PT_LAVA) {
+				if (parts[i].temp >= -100 * log(parts[i].life) + 400 + 273.15f || TYP(r) == PT_FIRE || TYP(r) == PT_PLSM || TYP(r) == PT_LAVA) {
 					for (int yy = -3; yy <= 3; yy++)
 						for (int xx = -3; xx <= 3; xx++)
 							if (xx*xx + yy * yy <= 9) {

@@ -65,7 +65,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Static|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\</OutDir>
-    <TargetName>Powder</TargetName>
+    <TargetName>Cyens Toy</TargetName>
     <IncludePath>$(ProjectDir)includes;$(ProjectDir)includes/SDL;$(ProjectDir)includes/lua5.1;$(ProjectDir)data;$(ProjectDir)src;$(ProjectDir)generated;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)Staticlibs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -289,12 +289,14 @@
     <ClCompile Include="src\simulation\elements\BVBR.cpp" />
     <ClCompile Include="src\simulation\elements\C5.cpp" />
     <ClCompile Include="src\simulation\elements\CAUS.cpp" />
+    <ClCompile Include="src\simulation\elements\CBNL.cpp" />
     <ClCompile Include="src\simulation\elements\CBNW.cpp" />
     <ClCompile Include="src\simulation\elements\CBXL.cpp" />
     <ClCompile Include="src\simulation\elements\CFLM.cpp" />
     <ClCompile Include="src\simulation\elements\CLNE.cpp" />
     <ClCompile Include="src\simulation\elements\CLST.cpp" />
     <ClCompile Include="src\simulation\elements\CNCT.cpp" />
+    <ClCompile Include="src\simulation\elements\CO.cpp" />
     <ClCompile Include="src\simulation\elements\CO2.cpp" />
     <ClCompile Include="src\simulation\elements\COAL.cpp" />
     <ClCompile Include="src\simulation\elements\CONV.cpp" />

@@ -57,11 +57,11 @@ int Element_ACTA::update(UPDATE_FUNC_ARGS)
 			if (BOUNDS_CHECK)
 			{
 				r = pmap[y + ry][x + rx];
-				if (!r || (r & 0xFF) == PT_ACTA)
+				if (!r || TYP(r) == PT_ACTA)
 					r = sim->photons[y + ry][x + rx];
 				if (!r)
 					continue;
-				if ((r & 0xFF) == PT_WATR || (r & 0xFF == PT_DSTW))w++;
+				if (TYP(r) == PT_WATR || TYP(r) == PT_DSTW)w++;
 			}
 	if (w > 3)sim->part_change_type(i, x, y, PT_VNGR);
 	return 0;

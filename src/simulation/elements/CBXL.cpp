@@ -56,12 +56,12 @@ int Element_CBXL::update(UPDATE_FUNC_ARGS)
 			if (BOUNDS_CHECK)
 			{
 				r = pmap[y + ry][x + rx];
-				if (!r || (r & 0xFF) == PT_CBXL)
+				if (!r || TYP(r) == PT_CBXL)
 					r = sim->photons[y + ry][x + rx];
 				if (!r)
 					continue;
 
-				if ((r & 0xFF) == PT_GAS) {
+				if (TYP(r) == PT_GAS) {
 					sim->part_change_type(ID(r), x + rx, y + ry, PT_ACTA);
 					sim->kill_part(i);
 				}

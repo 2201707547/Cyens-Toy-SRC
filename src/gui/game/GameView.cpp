@@ -2320,7 +2320,7 @@ void GameView::OnDraw()
 						sampleInfo << " (unknown mode)";
 				}
 				else if (type == PT_GAS || type == PT_OIL || type == PT_WAX || type == PT_MWAX || type == PT_PRFN || type == PT_DESL || type == PT_ALCL) {
-					sampleInfo << c->hydrocarbonName(type, sample.particle.life, sample.particle.tmp, sample.particle.tmp2, sample.particle.flags);
+					sampleInfo << c->hydrocarbonName(type, sample.particle.life, sample.particle.tmp, sample.particle.tmp2, sample.particle.ctype);
 				}
 				else
 				{

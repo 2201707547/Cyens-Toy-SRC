@@ -34,10 +34,10 @@ void ClampOrganic(Particle *p)
 
 	//Make sure the hydroxyl and special bond aren't in the same location
 	if (p->type == PT_ALCL) {
-		if (p->flags<1 || p->flags>p->life)
-			p->flags = 1;
-		if (p->flags == p->tmp2)
-			p->flags++;
+		if (p->ctype<1 || p->ctype>p->life)
+			p->ctype = 1;
+		if (p->ctype == p->tmp2)
+			p->ctype++;
 	}
 }
 

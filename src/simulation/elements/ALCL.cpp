@@ -61,8 +61,9 @@ int Element_ALCL::update(UPDATE_FUNC_ARGS) {
 					r = sim->photons[y + ry][x + rx];
 				if (!r)
 					continue;
-				if ((r & 0xFF) == PT_WATR || (r & 0xFF == PT_DSTW))
+				if (TYP(r) == PT_WATR || TYP(r) == PT_DSTW)
 					if (++w > 2) {
+						parts[i].ctype = 0;
 						sim->part_change_type(i, x, y, PT_RBAC);
 						sim->kill_part(ID(r));
 					}

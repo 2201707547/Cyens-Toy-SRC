@@ -1,0 +1,74 @@
+{
+	"Console" : 
+	{
+		"History" : 
+		[
+			"!set type ttan coal",
+			"!set type sand pqrt",
+			"!set type pqrt mwax",
+			"!set temp csti 0",
+			"!set temp csti 0",
+			"!set temp csti 0",
+			"!set temp csti 0",
+			"!set temp all 295.15",
+			"!set type rust watr",
+			"!set type cbxl dest",
+			"!set type dest h2",
+			"!set type ttan dmnd",
+			"!set x all 50",
+			"!set y all 50",
+			"!set x all 330",
+			"!set y all 180",
+			"tpt.el.mwax.weight=tpt.el.bcol.weight",
+			"!set tmp d2o 1000",
+			"!set life d2o 1000",
+			"!set type neut d2o",
+			"!set type cbnl dest"
+		]
+	},
+	"Decoration" : 
+	{
+		"Alpha" : 255,
+		"Blue" : 50,
+		"Green" : 100,
+		"Red" : 200
+	},
+	"Favorites" : null,
+	"Prop" : 
+	{
+		"Type" : 2,
+		"Value" : "2"
+	},
+	"Renderer" : 
+	{
+		"ColourMode" : 0,
+		"DebugMode" : true,
+		"Decorations" : true,
+		"DisplayModes" : 
+		[
+			16
+		],
+		"GravityField" : false,
+		"RenderModes" : 
+		[
+			258944,
+			324480,
+			62344,
+			62340,
+			4278252144,
+			67171201
+		]
+	},
+	"Scale" : 2,
+	"Simulation" : 
+	{
+		"AmbientHeat" : 1,
+		"EdgeMode" : 1,
+		"NewtonianGravity" : 1,
+		"PrettyPowder" : 1,
+		"UndoHistoryLimit" : 5
+	},
+	"User" : null,
+	"WindowX" : 355,
+	"WindowY" : 75
+}

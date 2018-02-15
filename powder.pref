@@ -3,19 +3,6 @@
 	{
 		"History" : 
 		[
-			"!set type ttan coal",
-			"!set type sand pqrt",
-			"!set type pqrt mwax",
-			"!set temp csti 0",
-			"!set temp csti 0",
-			"!set temp csti 0",
-			"!set temp csti 0",
-			"!set temp all 295.15",
-			"!set type rust watr",
-			"!set type cbxl dest",
-			"!set type dest h2",
-			"!set type ttan dmnd",
-			"!set x all 50",
 			"!set y all 50",
 			"!set x all 330",
 			"!set y all 180",
@@ -23,7 +10,24 @@
 			"!set tmp d2o 1000",
 			"!set life d2o 1000",
 			"!set type neut d2o",
-			"!set type cbnl dest"
+			"!set type cbnl dest",
+			"!set type goo wax",
+			"!set type btry non",
+			"!set type btry none",
+			"!set type clne coal",
+			"!set type bcln coal",
+			"!set type btry none",
+			"!set type bcln coal",
+			"!set type sand bcol",
+			"!set type btry none",
+			"!set type sand bcol",
+			"!set life bcol 110",
+			"!set tmp bcol 100",
+			"!set type watr none",
+			"!set ctype bcln oil",
+			"!set ctype bcln mwax",
+			"!set life d20 1000",
+			"!set life d2o 1000"
 		]
 	},
 	"Decoration" : 
@@ -48,7 +52,7 @@
 		[
 			16
 		],
-		"GravityField" : false,
+		"GravityField" : true,
 		"RenderModes" : 
 		[
 			258944,

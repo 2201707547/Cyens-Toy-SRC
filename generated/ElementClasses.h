@@ -207,6 +207,7 @@
 #define PT_RBAC 196
 #define PT_CO 197
 #define PT_CBNL 198
+#define PT_CYAN 199
 
 class Element_NONE: public Element
 {
@@ -1895,6 +1896,14 @@ class Element_CBNL: public Element
 public:
 	Element_CBNL();
 	virtual ~Element_CBNL();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_CYAN: public Element
+{
+public:
+	Element_CYAN();
+	virtual ~Element_CYAN();
 	static int update(UPDATE_FUNC_ARGS);
 };
 

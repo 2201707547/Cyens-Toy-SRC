@@ -202,5 +202,6 @@ std::vector<Element> GetElements()
 	elements.push_back(Element_RBAC());
 	elements.push_back(Element_CO());
 	elements.push_back(Element_CBNL());
+	elements.push_back(Element_CYAN());
 	return elements;
 }

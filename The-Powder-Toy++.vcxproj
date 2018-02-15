@@ -303,6 +303,7 @@
     <ClCompile Include="src\simulation\elements\CRAY.cpp" />
     <ClCompile Include="src\simulation\elements\CRBN.cpp" />
     <ClCompile Include="src\simulation\elements\CRMC.cpp" />
+    <ClCompile Include="src\simulation\elements\CYAN.cpp" />
     <ClCompile Include="src\simulation\elements\DCEL.cpp" />
     <ClCompile Include="src\simulation\elements\DESL.cpp" />
     <ClCompile Include="src\simulation\elements\DEST.cpp" />

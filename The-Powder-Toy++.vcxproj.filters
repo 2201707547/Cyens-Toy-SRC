@@ -1181,6 +1181,9 @@
     <ClCompile Include="src\simulation\elements\CBNL.cpp">
       <Filter>Source Files\simulation\element</Filter>
     </ClCompile>
+    <ClCompile Include="src\simulation\elements\CYAN.cpp">
+      <Filter>Source Files\simulation\element</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="generated\ElementClasses.h">

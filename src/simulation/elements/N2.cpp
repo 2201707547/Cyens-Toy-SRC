@@ -67,7 +67,12 @@ int Element_N2::update(UPDATE_FUNC_ARGS)
 				}
 
 				if (TYP(r) == PT_H2) {
-					sim->part_change_type(i,x,y,PT_NH3);
+					sim->part_change_type(i, x, y, PT_NH3);
+					sim->kill_part(ID(r));
+				}
+
+				if (TYP(r) == PT_CRBN) {
+					sim->part_change_type(i, x, y, PT_CYAN);
 					sim->kill_part(ID(r));
 				}
 			}

@@ -203,5 +203,21 @@ std::vector<Element> GetElements()
 	elements.push_back(Element_CO());
 	elements.push_back(Element_CBNL());
 	elements.push_back(Element_CYAN());
+	elements.push_back(Element_OXIM());
+	elements.push_back(Element_HNO3());
+	elements.push_back(Element_ANFO());
+	elements.push_back(Element_HDZN());
+	elements.push_back(Element_SDHX());
+	elements.push_back(Element_FMLD());
+	elements.push_back(Element_FRMD());
+	elements.push_back(Element_AMIN());
+	elements.push_back(Element_AMID());
+	elements.push_back(Element_ACET());
+	elements.push_back(Element_UREA());
+	elements.push_back(Element_UNTR());
+	elements.push_back(Element_CLCO());
+	elements.push_back(Element_CCL2());
+	elements.push_back(Element_ISCY());
+	elements.push_back(Element_NCTD());
 	return elements;
 }

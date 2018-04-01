@@ -42,25 +42,7 @@ Element_CBNL::Element_CBNL()
 	HighTemperature = ITH;
 	HighTemperatureTransition = NT;
 
-	Update = &Element_CBNL::update;
+	Update = NULL;
 }
 
 Element_CBNL::~Element_CBNL() {}
-
-//#TPT-Directive ElementHeader Element_CBNL static int update(UPDATE_FUNC_ARGS)
-int Element_CBNL::update(UPDATE_FUNC_ARGS)
-{
-	int r, rx, ry;
-	for (rx = -1; rx < 2; rx++)
-		for (ry = -1; ry < 2; ry++)
-			if (BOUNDS_CHECK)
-			{
-				r = pmap[y + ry][x + rx];
-				if (!r || TYP(r) == PT_CBNL)
-					r = sim->photons[y + ry][x + rx];
-				if (!r)
-					continue;
-
-			}
-	return 0;
-}

@@ -208,6 +208,22 @@
 #define PT_CO 197
 #define PT_CBNL 198
 #define PT_CYAN 199
+#define PT_OXIM 200
+#define PT_HNO3 201
+#define PT_ANFO 202
+#define PT_HDZN 203
+#define PT_SDHX 204
+#define PT_FMLD 205
+#define PT_FRMD 206
+#define PT_AMIN 207
+#define PT_AMID 208
+#define PT_ACET 209
+#define PT_UREA 210
+#define PT_UNTR 211
+#define PT_CLCO 212
+#define PT_CCL2 213
+#define PT_ISCY 214
+#define PT_NCTD 215
 
 class Element_NONE: public Element
 {
@@ -1807,7 +1823,7 @@ class Element_SDUM: public Element
 public:
 	Element_SDUM();
 	virtual ~Element_SDUM();
-	static int update(UPDATE_FUNC_ARGS);
+	
 };
 
 class Element_N2: public Element
@@ -1856,7 +1872,7 @@ class Element_CBXL: public Element
 public:
 	Element_CBXL();
 	virtual ~Element_CBXL();
-	static int update(UPDATE_FUNC_ARGS);
+	
 };
 
 class Element_ACTA: public Element
@@ -1896,7 +1912,7 @@ class Element_CBNL: public Element
 public:
 	Element_CBNL();
 	virtual ~Element_CBNL();
-	static int update(UPDATE_FUNC_ARGS);
+	
 };
 
 class Element_CYAN: public Element
@@ -1904,7 +1920,135 @@ class Element_CYAN: public Element
 public:
 	Element_CYAN();
 	virtual ~Element_CYAN();
+	
+};
+
+class Element_OXIM: public Element
+{
+public:
+	Element_OXIM();
+	virtual ~Element_OXIM();
 	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_HNO3: public Element
+{
+public:
+	Element_HNO3();
+	virtual ~Element_HNO3();
+	
+};
+
+class Element_ANFO: public Element
+{
+public:
+	Element_ANFO();
+	virtual ~Element_ANFO();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_HDZN: public Element
+{
+public:
+	Element_HDZN();
+	virtual ~Element_HDZN();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_SDHX: public Element
+{
+public:
+	Element_SDHX();
+	virtual ~Element_SDHX();
+	
+};
+
+class Element_FMLD: public Element
+{
+public:
+	Element_FMLD();
+	virtual ~Element_FMLD();
+	
+};
+
+class Element_FRMD: public Element
+{
+public:
+	Element_FRMD();
+	virtual ~Element_FRMD();
+	
+};
+
+class Element_AMIN: public Element
+{
+public:
+	Element_AMIN();
+	virtual ~Element_AMIN();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_AMID: public Element
+{
+public:
+	Element_AMID();
+	virtual ~Element_AMID();
+	
+};
+
+class Element_ACET: public Element
+{
+public:
+	Element_ACET();
+	virtual ~Element_ACET();
+	
+};
+
+class Element_UREA: public Element
+{
+public:
+	Element_UREA();
+	virtual ~Element_UREA();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_UNTR: public Element
+{
+public:
+	Element_UNTR();
+	virtual ~Element_UNTR();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_CLCO: public Element
+{
+public:
+	Element_CLCO();
+	virtual ~Element_CLCO();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_CCL2: public Element
+{
+public:
+	Element_CCL2();
+	virtual ~Element_CCL2();
+	static int update(UPDATE_FUNC_ARGS);
+};
+
+class Element_ISCY: public Element
+{
+public:
+	Element_ISCY();
+	virtual ~Element_ISCY();
+	
+};
+
+class Element_NCTD: public Element
+{
+public:
+	Element_NCTD();
+	virtual ~Element_NCTD();
+	
 };
 
 std::vector<Element> GetElements();

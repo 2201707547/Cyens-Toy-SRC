@@ -64,6 +64,13 @@ int Element_CAUS::update(UPDATE_FUNC_ARGS)
 					}
 				}
 
+				if (TYP(r) == PT_SDUM) {
+					sim->part_change_type(i, x, y, PT_SALT);
+					sim->kill_part(ID(r));
+					sim->pv[y / CELL][x / CELL] += 5;
+					sim->hv[y / CELL][x / CELL] += 15;
+				}
+
 				//This is the official CAUS code to make it like acid, but I want it weaker
 				/*else if (TYP(r) != PT_ACID && TYP(r) != PT_CAUS && TYP(r) != PT_RFRG && TYP(r) != PT_RFGL)
 				{

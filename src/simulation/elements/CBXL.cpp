@@ -42,29 +42,7 @@ Element_CBXL::Element_CBXL()
 	HighTemperature = ITH;
 	HighTemperatureTransition = NT;
 
-	Update = &Element_CBXL::update;
+	Update = NULL;
 }
 
 Element_CBXL::~Element_CBXL() {}
-
-//#TPT-Directive ElementHeader Element_CBXL static int update(UPDATE_FUNC_ARGS)
-int Element_CBXL::update(UPDATE_FUNC_ARGS)
-{
-	int r, rx, ry;
-	for (rx = -1; rx < 2; rx++)
-		for (ry = -1; ry < 2; ry++)
-			if (BOUNDS_CHECK)
-			{
-				r = pmap[y + ry][x + rx];
-				if (!r || TYP(r) == PT_CBXL)
-					r = sim->photons[y + ry][x + rx];
-				if (!r)
-					continue;
-
-				if (TYP(r) == PT_GAS) {
-					sim->part_change_type(ID(r), x + rx, y + ry, PT_ACTA);
-					sim->kill_part(i);
-				}
-			}
-	return 0;
-}

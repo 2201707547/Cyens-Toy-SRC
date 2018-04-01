@@ -21,11 +21,19 @@ public:
 	virtual int Perform(Simulation * sim, Particle * cpart, int x, int y, float strength);
 };
 
-class Tool_Vac: public SimTool
+class Tool_Cool: public SimTool
 {
 public:
-	Tool_Vac();
-	virtual ~Tool_Vac();
+	Tool_Cool();
+	virtual ~Tool_Cool();
+	virtual int Perform(Simulation * sim, Particle * cpart, int x, int y, float strength);
+};
+
+class Tool_Heat: public SimTool
+{
+public:
+	Tool_Heat();
+	virtual ~Tool_Heat();
 	virtual int Perform(Simulation * sim, Particle * cpart, int x, int y, float strength);
 };
 
@@ -53,19 +61,11 @@ public:
 	virtual int Perform(Simulation * sim, Particle * cpart, int x, int y, float strength);
 };
 
-class Tool_Heat: public SimTool
+class Tool_Vac: public SimTool
 {
 public:
-	Tool_Heat();
-	virtual ~Tool_Heat();
-	virtual int Perform(Simulation * sim, Particle * cpart, int x, int y, float strength);
-};
-
-class Tool_Cool: public SimTool
-{
-public:
-	Tool_Cool();
-	virtual ~Tool_Cool();
+	Tool_Vac();
+	virtual ~Tool_Vac();
 	virtual int Perform(Simulation * sim, Particle * cpart, int x, int y, float strength);
 };
 

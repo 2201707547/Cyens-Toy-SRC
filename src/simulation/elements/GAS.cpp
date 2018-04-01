@@ -82,6 +82,19 @@ int Element_GAS::update(UPDATE_FUNC_ARGS) {
 							}
 					if (rand() % 61 > parts[i].life)sim->part_change_type(i, x, y, rand() % 10 < 3 ? PT_CO2 : PT_SMKE);
 				}
+
+				if (TYP(r) == PT_CBXL) {
+					sim->part_change_type(i, x, y, PT_ACTA);
+					sim->kill_part(ID(r));
+				}
+				if (TYP(r) == PT_AMID && parts[i].life == 1) {
+					sim->part_change_type(i, x, y, PT_ACET);
+					sim->kill_part(ID(r));
+				}
+				if (TYP(r) == PT_CAUS) {
+					sim->part_change_type(i, x, y, PT_CLCO);
+					sim->kill_part(ID(r));
+				}
 			}
 	return 0;
 }

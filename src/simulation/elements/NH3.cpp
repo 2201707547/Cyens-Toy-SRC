@@ -60,8 +60,12 @@ int Element_NH3::update(UPDATE_FUNC_ARGS)
 					r = sim->photons[y + ry][x + rx];
 				if (!r)
 					continue;
-				
-				//Future reactions to be implemented here
+				if (TYP(r) == PT_HNO3)
+					sim->part_change_type(i, x, y, PT_ANFO);
+				if (TYP(r) == PT_GAS) {
+					sim->part_change_type(i, x, y, PT_AMIN);
+					sim->part_change_type(ID(r), x + rx, y + ry, PT_H2);
+				}
 			}
 	return 0;
 }

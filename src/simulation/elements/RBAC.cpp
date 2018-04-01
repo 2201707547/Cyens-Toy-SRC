@@ -20,7 +20,7 @@ Element_RBAC::Element_RBAC()
 	HotAir = 0.0f	* CFDS;
 	Falldown = 2;
 
-	Flammable = 0;
+	Flammable = 25;
 	Explosive = 0;
 	Meltable = 0;
 	Hardness = 5;

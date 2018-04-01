@@ -75,6 +75,16 @@ int Element_HXDE::update(UPDATE_FUNC_ARGS)
 					sim->part_change_type(i, x, y, PT_CBXL);
 					sim->kill_part(ID(r));
 				}
+
+				if (TYP(r) == PT_NH3) {
+					sim->part_change_type(i, x, y, PT_OXIM);
+					sim->kill_part(ID(r));
+				}
+
+				if (TYP(r) == PT_SDUM) {
+					sim->part_change_type(i, x, y, PT_SDHX);
+					sim->kill_part(ID(r));
+				}
 			}
 	return 0;
 }

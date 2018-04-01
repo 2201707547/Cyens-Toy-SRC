@@ -50,6 +50,7 @@ Element_ACID::Element_ACID()
 //#TPT-Directive ElementHeader Element_ACID static int update(UPDATE_FUNC_ARGS)
 int Element_ACID::update(UPDATE_FUNC_ARGS)
 {
+	bool hasWater = false;
 	int r, rx, ry, trade;
 	for (rx = -2; rx < 3; rx++)
 		for (ry = -2; ry < 3; ry++)
@@ -59,25 +60,35 @@ int Element_ACID::update(UPDATE_FUNC_ARGS)
 				if (!r)
 					continue;
 				int rt = TYP(r);
-				if (rt != PT_ACID && rt != PT_CAUS && rt != PT_ACTA)
+				if (rt == PT_WATR || rt == PT_DSTW || rt == PT_SLTW || rt == PT_CBNW) hasWater = true;
+				if (rt == PT_SDHX) {
+					sim->part_change_type(i, x, y, PT_SALT);
+					sim->part_change_type(ID(r), x + rx, y + ry, PT_WTRV);
+				}
+				if (hasWater && rt == PT_ISCY) {
+					sim->part_change_type(i, x, y, PT_FRMD);
+					sim->kill_part(ID(r));
+				}
+				if (rt == PT_PLEX || rt == PT_NITR || rt == PT_GUNP || rt == PT_RBDM || rt == PT_LRBD)
 				{
-					if (rt == PT_PLEX || rt == PT_NITR || rt == PT_GUNP || rt == PT_RBDM || rt == PT_LRBD)
-					{
-						sim->part_change_type(i, x, y, PT_FIRE);
-						sim->part_change_type(ID(r), x + rx, y + ry, PT_FIRE);
-						parts[i].life = 4;
-						parts[ID(r)].life = 4;
-					}
-					else if (rt == PT_WTRV)
-					{
-						if (!(rand() % 250))
-						{
-							sim->part_change_type(i, x, y, PT_CAUS);
-							parts[i].life = (rand() % 50) + 25;
-							sim->kill_part(ID(r));
-						}
-					}
-					else if ((rt != PT_CLNE && rt != PT_PCLN && sim->elements[rt].Hardness > (rand() % 1000)) && parts[i].life >= 50)
+					sim->part_change_type(i, x, y, PT_FIRE);
+					sim->part_change_type(ID(r), x + rx, y + ry, PT_FIRE);
+					parts[i].life = 4;
+					parts[ID(r)].life = 4;
+				}
+				/*else if (rt == PT_WTRV)
+				{
+				if (!(rand() % 250))
+				{
+				sim->part_change_type(i, x, y, PT_CAUS);
+				parts[i].life = (rand() % 50) + 25;
+				sim->kill_part(ID(r));
+				}
+				}*/
+				if (sim->elements[parts[ID(r)].type].Properties&TYPE_SOLID)
+				{
+					
+					if ((rt != PT_CLNE && rt != PT_PCLN && sim->elements[rt].Hardness > (rand() % 1000)) && parts[i].life >= 50)
 					{
 						if (sim->parts_avg(i, ID(r), PT_GLAS) != PT_GLAS)//GLAS protects stuff from acid
 						{

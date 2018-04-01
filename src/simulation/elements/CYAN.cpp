@@ -42,24 +42,7 @@ Element_CYAN::Element_CYAN()
 	HighTemperature = ITH;
 	HighTemperatureTransition = NT;
 
-	Update = &Element_CYAN::update;
+	Update = NULL;
 }
 
 Element_CYAN::~Element_CYAN() {}
-
-//#TPT-Directive ElementHeader Element_CYAN static int update(UPDATE_FUNC_ARGS)
-int Element_CYAN::update(UPDATE_FUNC_ARGS)
-{
-	int r, rx, ry;
-	for (rx = -1; rx < 2; rx++)
-		for (ry = -1; ry < 2; ry++)
-			if (BOUNDS_CHECK)
-			{
-				r = pmap[y + ry][x + rx];
-				if (!r || TYP(r) == PT_CYAN)
-					r = sim->photons[y + ry][x + rx];
-				if (!r)
-					continue;
-			}
-	return 0;
-}

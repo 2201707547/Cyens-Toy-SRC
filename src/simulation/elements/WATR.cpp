@@ -66,6 +66,8 @@ int Element_WATR::update(UPDATE_FUNC_ARGS)
 				else if ((TYP(r) == PT_RBDM || TYP(r) == PT_LRBD || TYP(r) == PT_SDUM) && (sim->legacy_enable || parts[i].temp > (273.15f + 12.0f)) && !(rand() % 100))
 				{
 					sim->part_change_type(i, x, y, PT_FIRE);
+					if (TYP(r) == PT_SDUM)
+						sim->part_change_type(ID(r), x + rx, y + ry, PT_SMKE);
 					parts[i].life = 4;
 					parts[i].ctype = PT_WATR;
 				}

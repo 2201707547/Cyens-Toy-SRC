@@ -5,7 +5,7 @@ Element_SDUM::Element_SDUM()
 	Identifier = "DEFAULT_PT_SDUM";
 	Name = "SDUM";
 	FullName = "Sodium";
-	Colour = PIXPACK(0xdddddd);
+	Colour = PIXPACK(0xaaaaaa);
 	MenuVisible = 1;
 	MenuSection = SC_POWDERS;
 	Enabled = 1;
@@ -42,30 +42,7 @@ Element_SDUM::Element_SDUM()
 	HighTemperature = ITH;
 	HighTemperatureTransition = NT;
 
-	Update = &Element_SDUM::update;
+	Update = NULL;
 }
 
 Element_SDUM::~Element_SDUM() {}
-
-//#TPT-Directive ElementHeader Element_SDUM static int update(UPDATE_FUNC_ARGS)
-int Element_SDUM::update(UPDATE_FUNC_ARGS)
-{
-	int r, rx, ry;
-	for (rx = -1; rx < 2; rx++)
-		for (ry = -1; ry < 2; ry++)
-			if (BOUNDS_CHECK)
-			{
-				r = pmap[y + ry][x + rx];
-				if (!r || TYP(r) == PT_SDUM)
-					r = sim->photons[y + ry][x + rx];
-				if (!r)
-					continue;
-				if (TYP(r) == PT_CAUS) {
-					sim->part_change_type(i, x, y, PT_SALT);
-					sim->kill_part(ID(r));
-					sim->pv[y / CELL][x / CELL] += 5;
-					sim->hv[y / CELL][x / CELL] += 15;
-				}
-			}
-	return 0;
-}

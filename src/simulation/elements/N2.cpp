@@ -75,6 +75,11 @@ int Element_N2::update(UPDATE_FUNC_ARGS)
 					sim->part_change_type(i, x, y, PT_CYAN);
 					sim->kill_part(ID(r));
 				}
+
+				if (TYP(r) == PT_AMID) {
+					sim->part_change_type(i, x, y, PT_UREA);
+					sim->kill_part(ID(r));
+				}
 			}
 	return 0;
 }
